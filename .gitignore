@@ -1,1 +1,7 @@
 sky-take-out/sky-server/src/main/resources/application-dev.yml
+**/target/
+.idea
+*.iml
+*.class
+*Test.java
+**/test/
