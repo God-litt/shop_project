@@ -8,6 +8,8 @@ import com.sky.enumeration.OperationType;
 import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface DishMapper {
 
@@ -32,4 +34,6 @@ public interface DishMapper {
 
 
     void update(Dish dish);
+
+    List<Dish> list(Dish dish);
 }
