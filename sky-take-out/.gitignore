@@ -4,3 +4,5 @@
 *.class
 *Test.java
 **/test/
+# 忽略 application-dev.yml
+**/sky-take-out/sky-server/src/main/resources/application-dev.yml
