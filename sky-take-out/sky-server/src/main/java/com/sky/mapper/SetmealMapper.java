@@ -6,11 +6,14 @@ import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Setmeal;
 import com.sky.enumeration.OperationType;
+import com.sky.vo.DishItemVO;
 import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface SetmealMapper {
@@ -39,4 +42,8 @@ public interface SetmealMapper {
 
     @Delete("delete from setmeal where id = #{setmealId}")
     void deleteById(Long setmealId);
+
+    List<Setmeal> list(Setmeal setmeal);
+
+    List<DishItemVO> getDishItemById(Long id);
 }

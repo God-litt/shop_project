@@ -28,5 +28,27 @@
         </where>
         order by s.update_time desc
     </select>
+    <select id="list" resultType="com.sky.entity.Setmeal" parameterType="setmeal">
+        select * from setmeal
+        <where>
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="name != null">
+                and name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+    <select id="getDishItemById" resultType="com.sky.vo.DishItemVO">
+        select s.*, d.name as dishName, d.price as price, d.image as image, d.description as description, d.setmeal_id as setmealId
+        from setmeal s
+        left join dish d on s.id = d.setmeal_id
+        where s.id = #{id}
+        order by d.sort asc
+    </select>
+
 
 </mapper>
