@@ -20,6 +20,7 @@ import org.apache.poi.ss.formula.functions.BaseNumberUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.domain.Page;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +36,7 @@ public class DishServiceImpl implements DishService {
     @Autowired
     private SetmealDishMapper setmealDishMapper;
 
+    private RedisTemplate redisTemplate;
 
     @Transactional
     public void saveWithFlavor(DishDTO dishDTO) {
@@ -138,6 +140,7 @@ public class DishServiceImpl implements DishService {
 
     @Override
     public List<Dish> list(Long categoryId) {
+
         Dish dish = new Dish();
         dish.setCategoryId(categoryId);
         dish.setStatus(StatusConstant.ENABLE);
