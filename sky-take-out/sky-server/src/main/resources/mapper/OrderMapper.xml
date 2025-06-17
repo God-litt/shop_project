@@ -92,6 +92,10 @@
             <if test="number != null and number != ''">
                 and (number like concat('%',#{number},'%') or phone like concat('%',#{number},'%'))
             </if>
+            <!-- 新增：根据手机号单独搜索，支持模糊搜索 -->
+            <if test="phone != null and phone != ''">
+                and phone like concat('%',#{phone},'%')
+            </if>
         </where>
         order by order_time desc
     </select>
