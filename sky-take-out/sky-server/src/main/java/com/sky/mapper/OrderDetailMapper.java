@@ -10,4 +10,6 @@ import java.util.List;
 public interface OrderDetailMapper {
 
     void insert(List<OrderDetail> orderDetailList);
+
+    List<OrderDetail> getByOrderId(Long orderId);
 }
